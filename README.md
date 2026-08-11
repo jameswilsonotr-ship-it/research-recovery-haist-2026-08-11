@@ -1,31 +1,39 @@
-# Research Recovery + HAIST Continuity Package
-**Session date**: 2026-08-11  
-**Account**: jameswilsonotr-ship-it
+# Research Recovery + HAIST Continuity
 
-This repository holds the **Markdown layer** of the research recovery session:
+**Public archive of the 2026-08-11 research recovery session**
 
-- Conversation flow and key decisions
-- Node evolution (01–66) and Agent evolution (cross-linked)
-- Domain-grouped research topics with node + agent citations
-- Three non-academic focus files (logistics/hardware, parallel conversation map, visual/ASCII/branding)
+This repository documents the dual-Source-of-Truth (dual-SSoT) research scaffold built after a Valerie context-drift event. It captures:
+
+- 66 formalized research nodes
+- Agent-to-node attunements for the bi-cameral swarm
+- Academic PDF corpus organization (binaries primarily on Google Drive; this repo holds structure + Markdown)
+- Evolution history, work targets, and cross-system links
+
+## Quick navigation
+
+| Path | Purpose |
+|------|---------|
+| [`docs/QUICKSTART.md`](docs/QUICKSTART.md) | How to orient yourself in under 5 minutes |
+| [`docs/CHANGELOG.md`](docs/CHANGELOG.md) | Version history of the recovery |
+| [`docs/TODO.md`](docs/TODO.md) | Open research and structural work |
+| [`nodes/`](nodes/) | One folder per research node (01–66) |
+| [`agents/`](agents/) | One folder per major agent / role |
+| [`system/`](system/) | Cross-links, dual-SSoT maps, citation index |
+| [`history/`](history/) | Session history, targets, work-queue snapshots |
 
 ## Full PDF corpus
-The complete academic PDF tree (~84 PDFs, ~42 MB source / 298 MB packaged) is **not** stored in this Git repository because of GitHub Contents API size limits and the project’s explicit binary safety gate.
 
-**Primary backup (full package with PDFs)** lives on Google Drive:
+The complete set of academic PDFs (~84 files) is **not** stored as Git blobs here because of Contents API limits. Primary binary backup:
 
-- Folder: [v1.1.0_2026-08-11_research-recovery-full-with-pdfs](https://drive.google.com/drive/folders/1G3bFznzNKxGNShb29mzrXwZXP6B6-CJ-)
+- Google Drive folder: [v1.1.0 full-with-pdfs](https://drive.google.com/drive/folders/1G3bFznzNKxGNShb29mzrXwZXP6B6-CJ-)
 - Archive: [research_recovery_full_with_pdfs_v1.1.0_2026-08-11.tar.gz](https://drive.google.com/file/d/1xUI7JwPGZ-HDmpZr7kwbFzhiMd798foN/view)
 
-If you want the binary corpus in GitHub as well, the recommended path is a **GitHub Release asset** (or Git LFS). The Markdown documentation in this repo is complete and self-contained for understanding the structure, decisions, and research map.
+Each `nodes/node_XX/` folder contains a `PDF_MANIFEST.md` listing the expected files and their Drive / original arXiv-PMC identifiers so the structure remains usable even without the binaries present.
 
-## Structure
-```
-README.md
-MANIFEST.md
-conversation/
-node_evolution/
-agent_evolution/
-research_topics/
-non_academic/
-```
+## Dual SSoT rule
+
+Every research node carries both:
+1. Academic anchors (preprints, OpenStax, arXiv, PMC)
+2. Practical / field anchors
+
+PDF originals remain archival source of truth; Markdown extracts and this repository are the agent-facing surface.

@@ -1,0 +1,16 @@
+name: Sync Reminder on Push
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post structure reminder
+        run: |
+          echo "Push received on main."
+          echo "Remember: binary PDFs are not stored in this repository via the Contents API."
+          echo "Primary binary store remains the Google Drive full package."
+          echo "If you added new PDFs via the web UI or LFS, update the corresponding nodes/*/PDF_MANIFEST.md."

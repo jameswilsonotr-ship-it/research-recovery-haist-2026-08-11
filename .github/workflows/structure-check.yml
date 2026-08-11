@@ -1,0 +1,54 @@
+name: Structure & Manifest Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  validate-structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required top-level files
+        run: |
+          test -f README.md
+          test -f docs/QUICKSTART.md
+          test -f docs/CHANGELOG.md
+          test -f docs/TODO.md
+          test -f nodes/INDEX.md
+          test -f agents/INDEX.md
+          test -f system/DUAL_SSOT.md
+          echo "Top-level required files present."
+
+      - name: Check node folders have README + PDF_MANIFEST
+        run: |
+          missing=0
+          for d in nodes/node_*; do
+            if [ -d "$d" ]; then
+              if [ ! -f "$d/README.md" ]; then
+                echo "MISSING README: $d"
+                missing=1
+              fi
+              if [ ! -f "$d/PDF_MANIFEST.md" ]; then
+                echo "MISSING PDF_MANIFEST: $d"
+                missing=1
+              fi
+            fi
+          done
+          if [ "$missing" -eq 1 ]; then
+            echo "Structure check failed."
+            exit 1
+          fi
+          echo "All node folders have required files."
+
+      - name: Summarize node coverage
+        run: |
+          echo "Node folders present:"
+          ls -1 nodes/ | grep node_ || true
+          echo ""
+          echo "Agent folders present:"
+          ls -1 agents/ | grep -v INDEX || true
